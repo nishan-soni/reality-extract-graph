@@ -1,0 +1,8 @@
+.overlay-div {
+  position: absolute;
+  bottom: 5%;
+  text-align: center;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
