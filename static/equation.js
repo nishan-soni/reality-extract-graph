@@ -3,7 +3,7 @@
 var ctx = document.getElementById("function-chart");
 let data = [];
 let params = {};
-let eq = "a / x";
+let eq = "(a + b) / x";
 
 /**
  * Parses an equation string and creates the sliders (does not support trig, log, sqrt functions yet, sqrt can be represented with **-1/2)
@@ -19,7 +19,8 @@ function parseEquation(equation) {
       params[letter] = 1;
     }
   }
-  params_array = Object.keys(params);
+  let params_array = Object.keys(params);
+  console.log(params_array);
 
   // Creating the sliders
   for (let i = 0; i < params_array.length; i++) {
