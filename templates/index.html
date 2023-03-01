@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Reality Extract</title>
+    <title>Equation Manipulator</title>
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
-    <!-- include ar.js for A-Frame -->
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://supereggbert.github.io/aframe-htmlembed-component/dist/build.js"></script>
     <link rel="stylesheet" href="static/overlay.css" />
   </head>
   <body style="margin: 0px; overflow: hidden">
+    <!-- Overlay for the sliders -->
     <div class="overlay-div">
-      <button id="capture-btn">Capture Object</button>
+      <div id="sliders"></div>
     </div>
-    <a-scene id="scene" embedded arjs>
-      <!-- create your content here. just a box for now -->
-      <a-image
-        id="extracted"
-        position="-1 0.5 -3"
-        src="https://cdn.glitch.global/f7f165be-5248-457d-859b-5eb9c8aec47a/cam.jpg?v=1675973583037"
-      ></a-image>
+    <a-scene id="scene" embedded arjs cursor="rayOrigin: mouse">
+      <a-marker-camera preset="hiro"></a-marker-camera>
+      <!-- Graph entity -->
+      <a-entity material="color: red" rotation="-90 0 0" htmlembed>
+        <div class="container">
+          <svg id="root"></svg>
+        </div>
+      </a-entity>
     </a-scene>
+    <script src="static/equation.js"></script>
   </body>
-
-  <script src="static/photo.js" defer></script>
 </html>
